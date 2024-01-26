@@ -23,20 +23,6 @@ class CorrutinasViewModel : ViewModel() {
 
     fun Colores() = if (color) Color.Blue else Color.Red
 
-    /*
-    fun fetchData() {
-        callCount = callCount.plus(1)
-        viewModelScope.launch {
-            val resultado = withContext(Dispatchers.IO)
-        {
-                delay(5000)
-                "Respuesta de la API ($callCount)"
-            }
-            StateResultado = resultado
-        }
-    }
-     */
-
     fun fetchData() {
         var isLoading: Boolean
         viewModelScope.launch {
