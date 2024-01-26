@@ -13,7 +13,7 @@ import kotlinx.coroutines.withContext
 
 class CorrutinasViewModel : ViewModel() {
 
-    //Parte 2 - Pruebas.
+    // Parte 2:
 
     var StateResultado by mutableStateOf("")
     private var callCount by mutableStateOf(0)
@@ -23,7 +23,6 @@ class CorrutinasViewModel : ViewModel() {
 
     fun Colores() = if (color) Color.Blue else Color.Red
 
-    /*
     fun fetchData() {
         callCount = callCount.plus(1)
         viewModelScope.launch {
@@ -34,28 +33,5 @@ class CorrutinasViewModel : ViewModel() {
             }
             StateResultado = resultado
         }
-    }
-     */
-
-    fun fetchData() {
-        var isLoading: Boolean
-        viewModelScope.launch {
-            try {
-                isLoading = true
-                llamarApi()
-            } catch (e: Exception) {
-                println("Error ${e.message}")
-            } finally {
-                isLoading = false
-            }
-        }
-    }
-
-    private suspend fun llamarApi() {
-        val result = withContext(Dispatchers.IO) {
-            delay(5000)
-            "Respuesta de la API"
-        }
-        StateResultado = result
     }
 }
