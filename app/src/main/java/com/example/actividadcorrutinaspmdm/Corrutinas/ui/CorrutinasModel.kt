@@ -11,9 +11,9 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class CorrutinasViewModel : ViewModel() {
+//Parte 3:
 
-    //Parte 2 - Pruebas.
+class CorrutinasViewModel : ViewModel() {
 
     var StateResultado by mutableStateOf("")
     private var callCount by mutableStateOf(0)
