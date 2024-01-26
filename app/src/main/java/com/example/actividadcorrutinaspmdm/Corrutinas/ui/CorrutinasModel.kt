@@ -16,6 +16,7 @@ class CorrutinasViewModel : ViewModel() {
     var StateResultado by mutableStateOf("")
     private var callCount by mutableStateOf(0)
     private var color by mutableStateOf(false)
+    //HOLA
 
     fun CambiaColor() { color = !color }
 
