@@ -15,23 +15,16 @@ fun Screens(corrutinasViewModel: CorrutinasViewModel) {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        BotonColor(corrutinasViewModel)
+        ColorButton(corrutinasViewModel)
         Text(text = corrutinasViewModel.resultState)
-        Button(onClick = {
-            corrutinasViewModel.bloqueoApp()
-        }) {
-            Text("Llamar API")
-        }
+        Button(onClick = { corrutinasViewModel.bloqueoApp() }) { Text("Llama a la API") }
     }
 }
 
 @Composable
-fun BotonColor(homeViewModel: CorrutinasViewModel) {
-
+fun ColorButton(corrutinasViewModel: CorrutinasViewModel) {
     Button(
-        onClick = { homeViewModel.changeColor() },
-        colors = ButtonDefaults.buttonColors(containerColor = homeViewModel.getColor())
-    ) {
-        Text(text = "Cambiar color")
-    }
+        onClick = { corrutinasViewModel.CambiaColor() },
+        colors = ButtonDefaults.buttonColors(containerColor = corrutinasViewModel.Colores())
+    ) { Text(text = "Pulsa para cambiar color") }
 }

@@ -9,14 +9,12 @@ import androidx.lifecycle.ViewModel
 class CorrutinasViewModel : ViewModel() {
 
     var resultState by mutableStateOf("")
-
     private var callCount by mutableStateOf(0)
-
     private var color by mutableStateOf(false)
 
-    fun changeColor() { color = !color }
+    fun CambiaColor() { color = !color }
 
-    fun getColor() = if (color) Color.Blue else Color.Red
+    fun Colores() = if (color) Color.Blue else Color.Red
 
     fun bloqueoApp() {
         Thread.sleep(5000)
