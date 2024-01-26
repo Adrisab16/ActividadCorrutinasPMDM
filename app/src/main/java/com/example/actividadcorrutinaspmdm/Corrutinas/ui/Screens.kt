@@ -16,7 +16,7 @@ fun Screens(corrutinasViewModel: CorrutinasViewModel) {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         ColorButton(corrutinasViewModel)
-        Text(text = corrutinasViewModel.resultState)
+        Text(text = corrutinasViewModel.StateResultado)
         Button(onClick = { corrutinasViewModel.fetchData() }) { Text("Llama a la API") }
     }
 }
