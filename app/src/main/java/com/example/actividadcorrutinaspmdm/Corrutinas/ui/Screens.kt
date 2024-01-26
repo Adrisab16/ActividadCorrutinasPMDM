@@ -17,7 +17,7 @@ fun Screens(corrutinasViewModel: CorrutinasViewModel) {
     ) {
         ColorButton(corrutinasViewModel)
         Text(text = corrutinasViewModel.resultState)
-        Button(onClick = { corrutinasViewModel.bloqueoApp() }) { Text("Llama a la API") }
+        Button(onClick = { corrutinasViewModel.fetchData() }) { Text("Llama a la API") }
     }
 }
 
