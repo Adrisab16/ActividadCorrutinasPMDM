@@ -11,6 +11,8 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
+// Parte 1:
+
 class CorrutinasViewModel : ViewModel() {
 
     var StateResultado by mutableStateOf("")
@@ -21,46 +23,8 @@ class CorrutinasViewModel : ViewModel() {
 
     fun Colores() = if (color) Color.Blue else Color.Red
 
-    /*
     fun bloqueoApp() {
         Thread.sleep(5000)
         callCount = callCount.plus(1)
         resultState = "Respuesta de la API $callCount"
-    }*/
-
-    /*
-    fun fetchData() {
-        callCount = callCount.plus(1)
-        viewModelScope.launch {
-            val resultado = withContext(Dispatchers.IO)
-        {
-                delay(5000)
-                "Respuesta de la API ($callCount)"
-            }
-            StateResultado = resultado
-        }
     }
-     */
-
-    fun fetchData() {
-        var isLoading: Boolean
-        viewModelScope.launch {
-            try {
-                isLoading = true
-                llamarApi()
-            } catch (e: Exception) {
-                println("Error ${e.message}")
-            } finally {
-                isLoading = false
-            }
-        }
-    }
-
-    private suspend fun llamarApi() {
-        val result = withContext(Dispatchers.IO) {
-            delay(5000)
-            "Respuesta de la API"
-        }
-        StateResultado = result
-    }
-}
