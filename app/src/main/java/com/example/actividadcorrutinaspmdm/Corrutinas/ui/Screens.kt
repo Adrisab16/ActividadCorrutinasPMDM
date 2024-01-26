@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -16,7 +17,11 @@ fun Screens(corrutinasViewModel: CorrutinasViewModel) {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         ColorButton(corrutinasViewModel)
-        Text(text = corrutinasViewModel.StateResultado)
+        if (corrutinasViewModel.isLoading) {
+            CircularProgressIndicator()
+        } else {
+            Text(text = corrutinasViewModel.StateResultado)
+        }
         Button(onClick = { corrutinasViewModel.fetchData() }) { Text("Llama a la API") }
     }
 }

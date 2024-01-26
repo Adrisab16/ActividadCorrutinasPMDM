@@ -18,13 +18,14 @@ class CorrutinasViewModel : ViewModel() {
     var StateResultado by mutableStateOf("")
     private var callCount by mutableStateOf(0)
     private var color by mutableStateOf(false)
+    var isLoading by mutableStateOf(false)
 
     fun CambiaColor() { color = !color }
 
     fun Colores() = if (color) Color.Blue else Color.Red
 
     fun fetchData() {
-        var isLoading: Boolean
+
         viewModelScope.launch {
             try {
                 isLoading = true
@@ -40,7 +41,8 @@ class CorrutinasViewModel : ViewModel() {
     private suspend fun llamarApi() {
         val result = withContext(Dispatchers.IO) {
             delay(5000)
-            "Respuesta de la API"
+            callCount = callCount.plus(1)
+            "Respuesta de la API: $callCount"
         }
         StateResultado = result
     }
