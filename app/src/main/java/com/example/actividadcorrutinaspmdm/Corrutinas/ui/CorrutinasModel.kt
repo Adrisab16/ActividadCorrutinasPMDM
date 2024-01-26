@@ -13,6 +13,8 @@ import kotlinx.coroutines.withContext
 
 class CorrutinasViewModel : ViewModel() {
 
+    //Parte 2 - Pruebas.
+
     var StateResultado by mutableStateOf("")
     private var callCount by mutableStateOf(0)
     private var color by mutableStateOf(false)
@@ -20,13 +22,6 @@ class CorrutinasViewModel : ViewModel() {
     fun CambiaColor() { color = !color }
 
     fun Colores() = if (color) Color.Blue else Color.Red
-
-    /*
-    fun bloqueoApp() {
-        Thread.sleep(5000)
-        callCount = callCount.plus(1)
-        resultState = "Respuesta de la API $callCount"
-    }*/
 
     /*
     fun fetchData() {
