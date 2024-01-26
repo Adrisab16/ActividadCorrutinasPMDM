@@ -3,16 +3,19 @@ package com.example.actividadcorrutinaspmdm
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.actividadcorrutinaspmdm.Corrutinas.ui.CorrutinasViewModel
+import com.example.actividadcorrutinaspmdm.Corrutinas.ui.Screens
 import com.example.actividadcorrutinaspmdm.ui.theme.ActividadCorrutinasPMDMTheme
 
 class MainActivity : ComponentActivity() {
+    private val CorrutinasViewModel: CorrutinasViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -22,25 +25,19 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Greeting("Android")
+                    Screens(CorrutinasViewModel)
                 }
             }
         }
     }
 }
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
-    ActividadCorrutinasPMDMTheme {
-        Greeting("Android")
-    }
+    ActividadCorrutinasPMDMTheme {}
 }
+
+
+
+
